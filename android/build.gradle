@@ -1,0 +1,48 @@
+//  buildscript {
+// ext {
+//     kotlin_version = '1.5.10'
+// }
+// }
+
+// plugins {
+//     id("com.android.application")
+//     id("kotlin-android") 
+//     id("kotlin-android-extensions")
+// }
+
+// allprojects {
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+// }
+
+// rootProject.buildDir = '../build'
+// subprojects {
+//     project.buildDir = "${rootProject.buildDir}/${project.name}"
+// }
+// subprojects {
+//     project.evaluationDependsOn(':app')
+//     // project.evaluationDependsOn(':domain')
+// }
+
+buildscript {
+    ext{
+        kotlin_version = '1.7.20'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.15'
+    }
+}
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(':app')
+}
+
